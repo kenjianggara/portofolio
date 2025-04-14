@@ -4,35 +4,25 @@ html, body {
     font-size: 16px;
     line-height: 1.5;
 }
+
 body {
     overflow-x: hidden;
-    background-color: #999999;
-    margin: 0;
     padding: 0;
-
     display: flex;
     flex-direction: column;
     min-height: 100vh;
-
-    display: flex;
-    flex-direction: column;
 }
+
 img{
     object-fit: contain;
     aspect-ratio: 3/2;
     mix-blend-mode: color-burn;
 }
 
-.container-fluid {
-    width: 100%;
-    padding-right: 0;
-    padding-left: 0;
-    margin-right: auto;
-    margin-left: auto;
-}
 .main-content {
     flex: 1;
 }
+
 .section {
     margin-top: 50px;
     padding: 20px;
@@ -74,10 +64,7 @@ img{
 
 
 footer {
-    background-color: #333333;
     color: #ffffff;
     padding: 20px;
     width: 100%;
-    text-align: center;
-
 }
