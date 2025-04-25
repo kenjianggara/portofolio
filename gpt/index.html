@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Portofolio - Home</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="font-sans transition duration-300">
+  <!-- HEADER -->
+  <header class="text-center py-10" style="background-color: var(--card-color)">
+    <!-- toogle theme -->
+    <button onclick="toggleTheme()" id="themeToggle"
+      class="absolute right-6 top-6 bg-cyan-500 px-4 py-1 rounded-lg hover:bg-cyan-400">
+      ☀️ Light Mode
+    </button>
+    <img
+      src="../img/kenji_profile_picture_teen_male_anime_character_realistic_gamer_301e5790-171b-41b3-b945-754f0e0729c3.png"
+      alt="Foto Profil" class="w-24 h-24 rounded-full mx-auto mb-4 border-4 border-cyan-500 shadow-lg" />
+    <h1 class="text-3xl font-bold">Anggara Kenji</h1>
+    <p>Security Engineer | Blue Team | Red Team</p>
+    <a href="assets/CV_ATS_Anggara.pdf" download
+      class="mt-4 inline-block bg-cyan-500 px-4 py-2 rounded hover:bg-cyan-400">📄
+      Download CV</a>
+  </header>
+
+  <!-- NAVIGATION -->
+  <nav class="sticky top-0 z-50 bg-[var(--card-color)] shadow-md p-4">
+    <ul class="flex justify-center gap-6 text-sm font-medium">
+      <li><a href="#tentang" class="hover:underline" style="color: var(--link-color)">Tentang</a></li>
+      <li><a href="#labs" class="hover:underline" style="color: var(--link-color)">Labs</a></li>
+      <li><a href="#courses" class="hover:underline" style="color: var(--link-color)">Kursus</a></li>
+      <li><a href="#certificates" class="hover:underline" style="color: var(--link-color)">Sertifikasi</a></li>
+      <li><a href="#blog" class="hover:underline" style="color: var(--link-color)">Blog</a></li>
+      <li><a href="#kontak" class="hover:underline" style="color: var(--link-color)">Kontak</a></li>
+    </ul>
+  </nav>
+
+  <!-- SECTION: TENTANG -->
+  <section id="tentang" class="p-8 pt-16">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4" style="color: var(--heading-color)">Tentang Saya</h2>
+    <p>
+      Saya adalah seorang Security Engineer di PT Dinamika Sistem Integrasi Solusi, 
+      saat ini berfokus pada area Blue Team dengan keterlibatan aktif dalam tools seperti Cortex XSIAM, XSOAR, dan XDR.
+      Sebelumnya, saya pernah bekerja sebagai Solution Engineer dan menjalani internship di bidang Management Information System, 
+      yang membentuk dasar teknis dan kolaboratif saya. Saya sangat menikmati lingkungan kerja yang dinamis dan kolaboratif, 
+      serta memiliki ketertarikan kuat dalam pemecahan masalah teknis. Ke depannya, saya ingin mengembangkan karier lebih jauh di bidang Red Team, 
+      untuk mendapatkan pemahaman menyeluruh dalam dunia cybersecurity.
+    </p>
+  </section>
+
+  <!-- SECTION: LABS -->
+  <section id="labs" class="p-8 pt-16">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4"><a href="project.html">Projects & Labs</a></h2>
+    <div class="space-y-4">
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Cortex XSOAR Playbook Development</h3>
+        <p>Membuat dan menguji playbook di lingkungan dev & prod, menangani integrasi threat intelligence dan monitoring
+          error jobs di BSI.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Web Scraping (Python)</h3>
+        <p>Scraping data dari situs publik untuk kebutuhan analisis.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: COURSES -->
+  <section id="courses" class="p-8 pt-16">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4"><a href="course.html">Kursus & Pelatihan</a></h2>
+    <div class="space-y-4">
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">TCM Security - Practical Web Security Testing</h3>
+        <p>Mempelajari teknik pentesting website termasuk OWASP Top 10, XSS, SQLi, Burp Suite.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Jadi Hacker - Intro SOC & Blue Team</h3>
+        <p>Analisis log, network forensics, hands-on dengan Wazuh dan Wireshark.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Jadi Hacker - Android App Pentester</h3>
+        <p>Fokus pada pengujian keamanan aplikasi Android, termasuk teknik reverse engineering, analisis traffic aplikasi, serta eksploitasi kelemahan umum di platform mobile.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Sekolah Hacker - Cyber Security Fundamental</h3>
+        <p>Pengenalan terhadap dunia cybersecurity, mencakup konsep CIA Triad, footprinting, scanning, hingga dasar-dasar exploitasi dan penggunaan tools forensik dasar</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Radware - Alteon</h3>
+        <p>Memahami konsep dasar load balancing, manajemen traffic, serta optimasi performa aplikasi menggunakan teknologi Radware Alteon.</p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold"> Radware - DefenseProX</h3>
+        <p>Pelatihan mengenai proteksi jaringan terhadap serangan DDoS, inspeksi trafik real-time, serta strategi mitigasi menggunakan platform DefensePro dari Radware.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: CERTIFICATES -->
+  <section id="certificates" class="p-8">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4"><a href="certificate.html">Certification</a></h2>
+    <div class="grid gap-4 sm:grid-cols-2">
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Palo Alto PCSAE</h3>
+        <p>Status: <span class="text-green-500 font-medium">Completed</span></p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">CEH (Certified Ethical Hacker)</h3>
+        <p>Status: <span class="text-green-500 font-medium">Completed</span></p>
+      </div>
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Arista</h3>
+        <p>Status: <span class="text-green-500 font-medium">Completed</span></p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: BLOG -->
+  <section id="blog" class="p-8">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4"> <a href="blog.html">Blog & Writeups</a></h2>
+    <div class="space-y-4">
+      <div class="bg-slate-800 p-4 rounded-xl shadow" style="background-color: var(--card-color)">
+        <h3 class="text-lg font-bold">Menganalisis Log Serangan Brute Force Menggunakan Wazuh</h3>
+        <p>Menjelaskan cara mendeteksi brute force SSH melalui log Wazuh dan action otomatis dengan XSOAR.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- SECTION: KONTAK -->
+  <section id="kontak" class="p-8">
+    <h2 class="text-xl font-semibold text-cyan-400 mb-4">Kontak</h2>
+    <ul class="space-y-2">
+      <li>Email: kenjianggara@linuxmail.org</li>
+      <li>Phone: +62 812-8322-0383</li>
+    </ul>
+  </section>
+  <!-- FOOTER -->
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+  <script>
+    // Memuat footer dari file footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+  </script>
+
+  <script src="assets/script.js"></script>
+</body>
+
+</html>

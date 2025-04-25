@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Certification Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="transition duration-300" style="background-color: var(--bg-color); color: var(--text-color);">
+    <!-- HEADER -->
+    <header class="text-center py-10 relative" style="background-color: var(--card-color)">
+        <h1 class="text-3xl font-bold">Certification</h1>
+
+        <!-- toogle theme -->
+        <button onclick="toggleTheme()" id="themeToggle"
+            class="absolute right-6 top-6 bg-cyan-500 px-4 py-1 rounded-lg hover:bg-cyan-400">
+            ☀️ Light Mode
+        </button>
+
+        <!-- Tombol Kembali ke Portofolio -->
+        <a href="index.html"
+            class="fixed bottom-6 left-6 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-400 z-50">
+            ⬅️ Kembali
+        </a>
+    </header>
+
+    <!-- Konten Sertifikasi -->
+    <div class="flex">
+        <!-- Sidebar Sertifikat -->
+        <aside class="w-64 bg-slate-800 p-6 z-10 sticky top-0 h-screen" style="background-color: var(--card-color)">
+            <h2 class="text-xl font-bold">Daftar Sertifikasi</h2>
+            <ul class="mt-4 space-y-2">
+                <li><a href="#pcsae" class="text-cyan-400 hover:underline">PCSAE</a></li>
+                <li><a href="#ceh" class="text-cyan-400 hover:underline">CEH</a></li>
+                <li><a href="#arista" class="text-cyan-400 hover:underline">Arista</a></li>
+            </ul>
+        </aside>
+
+        <!-- Isi Sertifikat -->
+        <main class="w-3/4 p-8 space-y-12">
+            <!-- Detail Sertifikat PCSAE -->
+            <section id="pcsae" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Palo Alto Networks - PAN Certified Security Automation
+                    Engineer</h2>
+                <img src="assets/img/Palo Alto Networks Certified Security Automation Engineer certificate_page-0001.jpg"
+                    alt="Sertifikat PCSAE" class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Sertifikat ini fokus pada produk Palo Alto seperti Cortex XDR, XSOAR, dan XSIAM. Dalam proses belajar
+                    untuk lulus ujian ini.</p>
+            </section>
+
+            <!-- Detail Sertifikat Arista -->
+            <section id="arista" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Arista - Arista Technical Accreditation</h2>
+                <img src="assets/img/Arista Technical Accreditation 2024.jpg" alt="Sertifikat Arista"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Sertifikat ini berfokus pada pemahaman teknologi jaringan berbasis Arista,
+                    termasuk Arista EOS, CloudVision, dan solusi jaringan modern berbasis software-defined networking
+                    (SDN).</p>
+            </section>
+        </main>
+
+        <main class="w-3/4 p-8 space-y-12">
+            <!-- Detail Sertifikat CEH -->
+            <section id="ceh" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Ec-Council - Certified Ethical Hacker v11</h2>
+                <img src="assets/img/ECC-CEH-Certificate_page-0001.jpg" alt="Sertifikat CEH"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Mempelajari berbagai teknik hacking, enumerasi, exploit, serangan terhadap sistem dan jaringan.
+                    Ditujukan untuk karir Red Team.</p>
+            </section>
+    </div>
+
+    <!-- Footer (dimuat dari file terpisah) -->
+    <div id="footer-container"></div>
+
+    <!-- Script -->
+    <script src="assets/script.js"></script>
+    <script>
+        // Load footer
+        fetch("footer.html")
+            .then(res => res.text())
+            .then(data => document.getElementById("footer-container").innerHTML = data);
+    </script>
+</body>
+
+</html>

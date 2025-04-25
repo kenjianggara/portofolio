@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Blog Details</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="font-sans transition duration-300 flex flex-col min-h-screen">
+
+  <!-- HEADER -->
+  <header class="text-center py-10 relative" style="background-color: var(--card-color)">
+    <!-- toogle theme -->
+    <button onclick="toggleTheme()" id="themeToggle"
+      class="absolute right-6 top-6 bg-cyan-500 px-4 py-1 rounded-lg hover:bg-cyan-400">
+      ☀️ Light Mode
+    </button>
+
+    <!-- Tombol Kembali ke Portofolio -->
+    <a href="index.html"
+      class="fixed bottom-6 left-6 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-400 z-50">
+      ⬅️ Kembali
+    </a>
+    <h1 class="text-3xl font-bold">Blog & Writeups</h1>
+  </header>
+
+  <div class="flex">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-slate-800 p-6 z-10 sticky top-0 h-screen" style="background-color: var(--card-color)">
+      <h2 class="text-xl font-bold">Blog</h2>
+      <ul class="mt-4 space-y-2">
+        <li><a href="#wazuh" class="block text-cyan-400 hover:underline">Menganalisis Log Serangan Brute Force
+            Menggunakan Wazuh</a></li>
+        <!-- Tambahkan blog lainnya di sini -->
+      </ul>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 p-8 pt-16 ml-72">
+      <!-- BLOG DETAIL -->
+      <section id="blog-detail" class="p-4 rounded-xl shadow">
+        <h2 class="text-xl font-semibold text-cyan-400 mb-4">Menganalisis Log Serangan Brute Force Menggunakan Wazuh
+        </h2>
+        <p>Blog ini membahas cara mendeteksi serangan brute force pada layanan SSH menggunakan Wazuh...</p>
+        <p><strong>Tanggal Terbit:</strong> 2025-04-01</p>
+        <p><strong>Kategori:</strong> Forensik, Wazuh</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+          Animi cum perferendis maxime a doloribus ratione! Corporis libero incidunt laudantium ratione laborum excepturi, 
+          natus illo iusto mollitia esse eaque iure repellendus omnis fugit quod unde eligendi! Veniam consectetur, 
+          aliquid minima laudantium quas ab placeat iusto esse accusantium ad labore nemo! Accusantium hic doloremque qui corporis mollitia, 
+          blanditiis distinctio in quae magni tempore numquam, ducimus cupiditate praesentium facilis. 
+          Nulla sequi beatae iusto praesentium recusandae quae eligendi incidunt ad eius alias odio itaque blanditiis hic delectus atque, 
+          vel similique sint soluta adipisci autem architecto quisquam nemo exercitationem labore. Fugit modi, 
+          omnis quasi rem molestias id ad distinctio quae nihil optio mollitia hic minus eos odio possimus ipsam aliquam, 
+          laudantium tempore aspernatur? Quia, laboriosam ipsa. Modi deleniti itaque nisi consectetur eius rem officiis, 
+          molestiae vel eaque minus enim aspernatur iusto iure inventore facere harum. Libero placeat, 
+          at possimus ducimus recusandae neque id animi praesentium accusamus architecto esse non tempora voluptatibus ullam in doloremque asperiores sit reiciendis consectetur
+           harum sunt? Temporibus, dolorum, quasi, repellendus eius fugiat repudiandae eaque corrupti qui mollitia quos unde! 
+           Cum, culpa debitis obcaecati animi quae accusamus tempore fugit, facere necessitatibus autem dignissimos numquam asperiores adipisci nemo ipsa provident ea sapiente 
+           quam magni quo doloremque molestiae alias labore. At quibusdam vitae quae est! Perferendis quisquam omnis, quae autem soluta voluptatem totam velit illo, 
+           maiores quidem itaque accusamus modi alias voluptas quasi labore. Necessitatibus, eaque. Vitae cum dolores quidem est et mollitia, 
+           tenetur neque enim praesentium temporibus voluptatibus sapiente, quas fugit ad quibusdam?</p>
+      </section>
+    </main>
+  </div>
+
+  <!-- FOOTER -->
+  <!-- Footer Container -->
+  <div id="footer-container"></div>
+  <script>
+    // Memuat footer dari file footer.html
+    fetch('footer.html')
+      .then(response => response.text())
+      .then(data => document.getElementById('footer-container').innerHTML = data);
+  </script>
+  <script src="assets/script.js"></script>
+</body>
+
+</html>

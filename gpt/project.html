@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projects & Labs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="font-sans transition duration-300 flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header class="text-center py-10 relative" style="background-color: var(--card-color)">
+        <!-- Toggle Theme -->
+        <button onclick="toggleTheme()" id="themeToggle"
+            class="absolute right-6 top-6 bg-cyan-500 px-4 py-1 rounded-lg hover:bg-cyan-400">
+            ☀️ Light Mode
+        </button>
+        <!-- Tombol Kembali ke Portofolio -->
+        <a href="index.html"
+            class="fixed bottom-6 left-6 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-400 z-50">
+            ⬅️ Kembali
+        </a>
+        <h1 class="text-3xl font-bold">Projects & Labs</h1>
+    </header>
+
+    <div class="flex">
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-800 p-6 z-10 sticky top-0 h-screen" style="background-color: var(--card-color)">
+            <h2 class="text-xl font-bold">Projects</h2>
+            <ul class="mt-4 space-y-2">
+                <li><a href="#xsoar-bsi" class="text-cyan-400 hover:underline">Cortex XSOAR – Integrasi Threat Intel
+                        (BSI)</a></li>
+                <li><a href="#xsiam-demo" class="text-cyan-400 hover:underline">XSIAM – Proof of Concept Demo</a></li>
+                <li><a href="#forensic-lab" class="text-cyan-400 hover:underline">Forensic Analysis Lab – JadiHacker
+                        Exam</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-3/4 p-8 space-y-12">
+            <h1 class="text-3xl font-bold text-cyan-500 mb-8">🛠️ Projects & Labs</h1>
+
+            <!-- Project 1 -->
+            <section id="xsoar-bsi" class="space-y-4 scroll-mt-32">
+                <h2 class="text-2xl font-bold text-cyan-400">📍 Cortex XSOAR – Integrasi Threat Intel (BSI)</h2>
+                <img src="assets/projects/xsoar-bsi.png" alt="XSOAR BSI"
+                    class="w-full max-w-xl rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Live Monitoring</strong></p>
+                <p>Melakukan pengecekan dan monitoring playbook, integrasi threat intel feed, serta troubleshooting
+                    error pada jobs di platform XSOAR untuk environment Bank Syariah Indonesia.</p>
+            </section>
+
+            <!-- Project 2 -->
+            <section id="xsiam-demo" class="space-y-4 scroll-mt-32">
+                <h2 class="text-2xl font-bold text-cyan-400">📊 XSIAM – Proof of Concept Demo</h2>
+                <img src="assets/projects/xsiam-demo.png" alt="XSIAM Demo"
+                    class="w-full max-w-xl rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Internal POC</strong></p>
+                <p>Membuat simulasi alert dengan menggunakan log simulasi dan mendemokan kemampuan detection XSIAM untuk
+                    kebutuhan presentasi ke calon klien.</p>
+            </section>
+
+            <!-- Project 3 -->
+            <section id="forensic-lab" class="space-y-4 scroll-mt-32">
+                <h2 class="text-2xl font-bold text-cyan-400">🔍 Forensic Analysis Lab – JadiHacker Exam</h2>
+                <img src="assets/projects/forensic-lab.jpg" alt="Forensic Lab"
+                    class="w-full max-w-xl rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Completed</strong></p>
+                <p>Melakukan analisis file dump, penggunaan tools seperti Autopsy dan Wireshark untuk menjawab soal
+                    ujian yang menguji kemampuan forensik digital.</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <div id="footer-container"></div>
+    <script>
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data);
+    </script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>

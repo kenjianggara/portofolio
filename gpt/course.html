@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="id" data-theme="dark">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Blog Details</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="assets/style.css" />
+</head>
+
+<body class="font-sans transition duration-300 flex flex-col min-h-screen">
+
+    <!-- HEADER -->
+    <header class="text-center py-10 relative" style="background-color: var(--card-color)">
+        <!-- toogle theme -->
+        <button onclick="toggleTheme()" id="themeToggle"
+            class="absolute right-6 top-6 bg-cyan-500 px-4 py-1 rounded-lg hover:bg-cyan-400">
+            ☀️ Light Mode
+        </button>
+
+        <!-- Tombol Kembali ke Portofolio -->
+        <a href="index.html"
+            class="fixed bottom-6 left-6 bg-cyan-500 text-white px-4 py-2 rounded-lg hover:bg-cyan-400 z-50">
+            ⬅️ Kembali
+        </a>
+        <h1 class="text-3xl font-bold">Courses & Training</h1>
+    </header>
+
+    <div class="flex">
+
+        <!-- Sidebar -->
+        <aside class="w-64 bg-slate-800 p-6 z-10 sticky top-0 h-screen" style="background-color: var(--card-color)">
+            <h2 class="text-xl font-bold">Courses</h2>
+            <ul class="mt-4 space-y-2">
+                <li><a href="#jadihacker" class="text-cyan-400 hover:underline">JadiHacker - Intro SOC Analyst</a></li>
+                <li><a href="#jadihacker2" class="text-cyan-400 hover:underline">JadiHacker - Android App Pentester</a></li>
+                <li><a href="#tcm" class="text-cyan-400 hover:underline">TCM Security - PWST</a></li>
+                <li><a href="#sekolahhacker" class="text-cyan-400 hover:underline">Sekolah Hacker - Cyber Security Fundamental</a></li>
+                <li><a href="#alteon" class="text-cyan-400 hover:underline">Radware - Alteon</a></li>
+                <li><a href="#defensepro" class="text-cyan-400 hover:underline">Radware - DefenseProX</a></li>
+            </ul>
+        </aside>
+
+        <!-- Main Content -->
+        <main class="w-3/4 p-8 space-y-12">
+            <h1 class="text-3xl font-bold text-cyan-500 mb-8 text-center">📚 Kursus & Pelatihan</h1>
+
+            <!-- Kursus 1 -->
+            <section id="jadihacker" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">JadiHacker - Intro SOC Analyst</h2>
+                <img src="assets/img/Jadihacker - SOC_Anggara_page-0001.jpg" alt="Sertifikat JadiHacker"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Lulus</strong></p>
+                <p>Pelatihan pengantar untuk menjadi SOC Analyst. Materi mencakup dasar-dasar keamanan siber, analisis
+                    alert, hingga penggunaan SIEM. Disediakan hands-on lab dan ujian akhir sebagai validasi kompetensi.
+                </p>
+            </section>
+
+            <!-- Kursus 2 -->
+            <section id="jadihacker2" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">JadiHacker - Android Application Penetration Testing</h2>
+                <img src="assets/img/JadiHacker - MAPT_Anggara_page-0001.jpg" alt="Sertifikat JadiHacker2"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Lulus</strong></p>
+                <p>Pelatihan ini merupakan pengantar untuk menjadi Android Application Pentester. 
+                    Materi mencakup dasar-dasar keamanan aplikasi mobile(android), teknik analisis ancaman, 
+                    serta penggunaan alat bantu seperti emulator dan proxy. 
+                    Tersedia hands-on lab dan ujian akhir sebagai validasi kompetensi peserta.
+                </p>
+            </section>
+
+            <!-- Kursus 3 -->
+            <section id="tcm" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">TCM Security - Practical Web Security</h2>
+                <img src="assets/img/certificate-of-completion-for-practical-web-application-security-and-testing_page-0001.jpg" alt="Sertifikat TCM"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Dalam Proses</strong></p>
+                <p>Kursus ini berfokus pada pengujian keamanan web seperti XSS, SQLi, IDOR, dan CSRF. Disediakan lab
+                    interaktif untuk mengasah kemampuan offensive web security.</p>
+            </section>
+
+            <!-- Kursus 4 -->
+            <section id="sekolahhacker" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Sekolah Hacker - Cyber Security Fundamental</h2>
+                <img src="assets/img/E-Certificate Sekolah Hacker 17 - Anggara Student_page-0001.jpg" alt="Sertifikat Sekolah Hacker"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Selesai</strong></p>
+                <p>Kursus yang membahas konsep dasar cybersecurity termasuk CIA Triad, teknik footprinting, hingga
+                    pengenalan terhadap exploitasi. Sangat cocok untuk pemula.</p>
+            </section>
+
+            <!-- Kursus 5 -->
+            <section id="alteon" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Radware - Alteon Level 1</h2>
+                <img src="assets/img/alteon level 1.jpg" alt="Sertifikat Sekolah Hacker"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Selesai</strong></p>
+                <p>Pelatihan ini memperkenalkan konsep dasar dari Radware Alteon, 
+                    termasuk pengelolaan load balancing, optimasi aplikasi, 
+                    dan pengaturan traffic untuk meningkatkan performa dan keamanan jaringan.</p>
+            </section>
+
+            <!-- Kursus 6 -->
+            <section id="defensepro" class="space-y-4">
+                <h2 class="text-2xl font-bold text-cyan-400">Radware - DefenseProX Level 1</h2>
+                <img src="assets/img/DefenseProX Level 1.jpg" alt="Sertifikat Sekolah Hacker"
+                    class="w-full max-w-md rounded-xl shadow mx-auto" />
+                <p>Status: <strong>Selesai</strong></p>
+                <p>Kursus ini membahas fitur-fitur utama dari Radware DefensePro, seperti proteksi terhadap serangan DDoS, 
+                    inspeksi lalu lintas real-time, dan penggunaan signature untuk mendeteksi serta mencegah ancaman keamanan secara proaktif</p>
+            </section>
+
+        </main>
+    </div>
+
+    <!-- FOOTER -->
+    <!-- Footer Container -->
+    <div id="footer-container"></div>
+    <script>
+        // Memuat footer dari file footer.html
+        fetch('footer.html')
+            .then(response => response.text())
+            .then(data => document.getElementById('footer-container').innerHTML = data);
+    </script>
+    <script src="assets/script.js"></script>
+</body>
+
+</html>
