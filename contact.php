@@ -1,18 +1,24 @@
 <!DOCTYPE html>
-<html>
-
+<html lang="en">
 <head>
     <title>Contact Us</title>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="style.css">
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-</head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">  
+
+    <!-- bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
+</head>
 <body>
     <!-- Navigation Bar -->
-    <?php include 'partials/header.php'; ?>
-
+    <!-- Navbar Container -->
+    <?php include('./partials/header.php');?>
+    
+    <!-- Contact Us Section -->
     <section class="contact-us mt-5">
         <div class="container">
             <h1 class="text-center">Contact Us</h1>
@@ -51,7 +57,7 @@
     </section>
 
     <!-- Footer -->
-    <?php include 'partials/footer.php'; ?>
+    <?php include('./partials/footer.php');?>
 
     <!--Bootstrap, JS and JQuery-->
 

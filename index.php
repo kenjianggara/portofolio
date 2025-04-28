@@ -2,36 +2,47 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>My Personal Website</title>
-    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
-    <!-- Bootstrap CSS -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
 
+    <!-- favicon -->
+    <link rel="icon" type="image/x-icon" href="./img/favicon.ico">
+
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
     <!-- Navigation Bar -->
-    <?php include_once 'partials/header.php'; ?>
+    <!-- Navbar Container -->
+    <?php include('./partials/header.php');?>
+
+
+    <!-- Labs and Challenges Section -->
     <section class="labs-challenges content">
         <div class="mt-5">
-            <h2 class="text-center mb-4">Labs and Challenges</h2>
+            <h2 class="text-center mb-4 fw-bold">Labs and Challenges</h2>
             <div class="row justify-content-center px-5 text-center">
                 <div class="col">
                     <a href="https://ctftime.org" target="_blank">
-                        <img src="https://ctftime.org/static/images/ct/logo.svg" alt="CTFtime" class="img-fluid" title="CTFtime">
+                        <img src="https://ctftime.org/static/images/ct/logo.svg" alt="CTFtime" class="img-fluid"
+                            title="CTFtime">
                     </a>
                 </div>
                 <div class="col align-content-center">
                     <a href="https://www.hackthebox.com" target="_blank">
-                        <img src="https://doimages.nyc3.digitaloceanspaces.com/hackthebox-logo@4x.png" alt="Hack The Box" class="img-fluid" title="Hack The Box">
+                        <img src="https://doimages.nyc3.digitaloceanspaces.com/hackthebox-logo@4x.png"
+                            alt="Hack The Box" class="img-fluid" title="Hack The Box">
                     </a>
                 </div>
                 <div class="col">
                     <a href="https://www.hackthissite.org" target="_blank">
-                        <img src="https://data.htscdn.org/themes/Dark/images/header.jpg" alt="Hack This Site" class="img-fluid" title="Hack This Site">
+                        <img src="https://data.htscdn.org/themes/Dark/images/header.jpg" alt="Hack This Site"
+                            class="img-fluid" title="Hack This Site">
                     </a>
                 </div>
                 <div class="col">
@@ -41,7 +52,8 @@
                 </div>
                 <div class="col">
                     <a href="https://blueteamlabs.online/" target="_blank">
-                        <img src="https://blueteamlabs.online/landpage/images/500_x_500_Logo_White_Border.png" alt="Blue Team Labs" class="img-fluid" title="Blue Team Labs">
+                        <img src="https://blueteamlabs.online/landpage/images/500_x_500_Logo_White_Border.png"
+                            alt="Blue Team Labs" class="img-fluid" title="Blue Team Labs">
                     </a>
                 </div>
             </div>
@@ -65,12 +77,14 @@
                 </div>
                 <div class="col">
                     <a href="https://tryhackme.com" target="_blank">
-                        <img src="https://assets.tryhackme.com/img/THMlogo.png" alt="Try Hack Me" class="img-fluid" title="Try Hack Me">
+                        <img src="https://assets.tryhackme.com/img/THMlogo.png" alt="Try Hack Me" class="img-fluid"
+                            title="Try Hack Me">
                     </a>
                 </div>
                 <div class="col">
                     <a href="https://www.hacktrace-ranges.id/ranges" target="_blank">
-                        <img src="https://www.hacktrace-ranges.id/assets/images/banner1.png" alt="Hacktrace ranges" class="img-fluid" title="Hacktrace ranges">
+                        <img src="https://www.hacktrace-ranges.id/assets/images/banner1.png" alt="Hacktrace ranges"
+                            class="img-fluid" title="Hacktrace ranges">
                     </a>
                 </div>
             </div>
@@ -78,16 +92,18 @@
     </section>
     <section class="courses content">
         <div class="container-fluid mt-5">
-            <h2 class="text-center mb-4">Online Courses and Bootcamp</h2>
+            <h2 class="text-center mb-4 fw-bold">Online Courses and Bootcamp</h2>
             <div class="row justify-content-center px-5 text-center">
                 <div class="col">
                     <a href="https://www.isc2.org/" target="_blank">
-                        <img src="https://images.credly.com/images/0e8d9cd4-ce53-4afd-be2e-d8b30021b61b/blob.png" alt="ISC2" class="img-fluid" title="ISC2">
+                        <img src="https://images.credly.com/images/0e8d9cd4-ce53-4afd-be2e-d8b30021b61b/blob.png"
+                            alt="ISC2" class="img-fluid" title="ISC2">
                     </a>
                 </div>
                 <div class="col align-content-center">
                     <a href="https://www.eccouncil.org/" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Ec_Council_Logo.png" alt="Ec-Council" class="img-fluid" title="Ec-Council">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/c/cb/Ec_Council_Logo.png"
+                            alt="Ec-Council" class="img-fluid" title="Ec-Council">
                     </a>
                 </div>
                 <div class="col">
@@ -97,19 +113,22 @@
                 </div>
                 <div class="col">
                     <a href="https://github.com/digininja/DVWA" target="_blank">
-                        <img src="https://appstore.edgenexus.io/wp-content/uploads/2018/03/dvwa-logo-500x500.png" alt="DVWA" class="img-fluid" title="DamnVulnerableWebApplication">
+                        <img src="https://appstore.edgenexus.io/wp-content/uploads/2018/03/dvwa-logo-500x500.png"
+                            alt="DVWA" class="img-fluid" title="DamnVulnerableWebApplication">
                     </a>
                 </div>
                 <div class="col">
                     <a href="https://juice-shop.herokuapp.com/" target="_blank">
-                        <img src="https://juice-shop.herokuapp.com/assets/public/images/JuiceShop_Logo.png" alt="Owasp Juice Shop" class="img-fluid" title="Owasp Juice Shop">
+                        <img src="https://juice-shop.herokuapp.com/assets/public/images/JuiceShop_Logo.png"
+                            alt="Owasp Juice Shop" class="img-fluid" title="Owasp Juice Shop">
                     </a>
                 </div>
             </div>
             <div class="row justify-content-center px-5">
                 <div class="col">
                     <a href="https://www.udemy.com/" target="_blank">
-                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png" alt="Udemy" class="img-fluid" title="Udemy">
+                        <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e3/Udemy_logo.svg/2560px-Udemy_logo.svg.png"
+                            alt="Udemy" class="img-fluid" title="Udemy">
                     </a>
                 </div>
                 <div class="col">
@@ -125,12 +144,14 @@
                 </div>
                 <div class="col">
                     <a href="https://tryhackme.com" target="_blank">
-                        <img src="https://assets.tryhackme.com/img/THMlogo.png" alt="Try Hack Me" class="img-fluid" title="Try Hack Me">
+                        <img src="https://assets.tryhackme.com/img/THMlogo.png" alt="Try Hack Me" class="img-fluid"
+                            title="Try Hack Me">
                     </a>
                 </div>
                 <div class="col">
                     <a href="https://www.hacktrace-ranges.id/ranges" target="_blank">
-                        <img src="https://www.hacktrace-ranges.id/assets/images/banner1.png" alt="Hacktrace ranges" class="img-fluid" title="Hacktrace ranges">
+                        <img src="https://www.hacktrace-ranges.id/assets/images/banner1.png" alt="Hacktrace ranges"
+                            class="img-fluid" title="Hacktrace ranges">
                     </a>
                 </div>
             </div>
@@ -138,11 +159,12 @@
     </section>
 
     <!-- Footer -->
-    <?php include 'partials/footer.php'; ?>
-
+    <?php include('./partials/footer.php');?>
 
     <!-- Bootstrap JS and jQuery -->
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
 </body>
 
 </html>

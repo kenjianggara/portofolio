@@ -1,3 +1,4 @@
+/* general */
 html, body {
     height: 100%;
     font-family: 'Arial', sans-serif;
@@ -11,16 +12,15 @@ body {
     display: flex;
     flex-direction: column;
     min-height: 100vh;
+    background-color: #547792;
 }
-
 img{
     object-fit: contain;
     aspect-ratio: 3/2;
-    mix-blend-mode: color-burn;
-}
-
-.main-content {
-    flex: 1;
+    max-width: 100%;
+    height: auto;
+    display: block;
+    margin: 0 auto;
 }
 
 .section {
@@ -28,6 +28,7 @@ img{
     padding: 20px;
 }
 
+/* about */
 .about-section {
     padding: 60px 0;
 }
@@ -60,9 +61,10 @@ img{
     background-color: #e6f4ea;
     color: #2d6a4f;
     border: 1px solid #b7dfc5;
-}
+} 
 
 
+/* footer */
 footer {
     color: #ffffff;
     padding: 20px;
