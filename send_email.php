@@ -57,6 +57,6 @@ $stmt->execute();
 $conn->close();
 
 // Redirect back to the contact page with success status
-header("Location: ../contact.php?status=success");
+header("Location: ./contact.php?status=success");
 exit;
 ?>

@@ -23,19 +23,20 @@
         <div class="container">
             <h1 class="text-center">Contact Us</h1>
             <div class="d-flex justify-content-center align-items-center gap-2 flex-wrap mb-3">
-                <span>📧 example@gmail.com</span>
+                <span>📧 kenjianggara@linuxmail.com</span>
                 <span class="px-2">|</span>
                 <span>📱 +62 812-3456-7890</span>
             </div>
 
-            <form method="POST" action="./percobaan/send_email.php">
+            <form method="POST" action="./send_email.php">
                 <div class="form-group">
                     <label for="name">Name:</label>
                     <input type="text" class="form-control" id="name" name="name" placeholder="Enter name" required>
                 </div>
                 <div class="form-group">
                     <label for="email">Email:</label>
-                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required>
+                    <input type="email" class="form-control" id="email" name="email" placeholder="Enter email" required pattern="[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$"
+                    title="Format email tidak sesuai.">
                 </div>
                 <div class="form-group">
                     <label for="message">Message:</label>
