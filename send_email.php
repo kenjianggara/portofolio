@@ -38,7 +38,8 @@ $message = $_POST['message'];
 
 // Validate email
 if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    die("Email tidak valid");
+    header("Location: contact.php?status=invalid");
+    exit;
 }
 
 // Store data to database
