@@ -71,7 +71,10 @@ $mail = new PHPMailer(true);
 try {
     // Aktifkan sementara jika perlu lihat detail di error.log:
     // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
-
+    // DEBUG: aktifkan sementara, setelah beres matikan lagi
+    $mail->SMTPDebug  = SMTP::DEBUG_SERVER;
+    $mail->Debugoutput = static function($str) { error_log('[SMTP] ' . $str); };
+    
     $mail->isSMTP();
     $mail->Host       = $config['host'];
     $mail->SMTPAuth   = true;
