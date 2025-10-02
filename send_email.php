@@ -19,7 +19,7 @@ if (!is_file($autoload)) {
 }
 require $autoload;
 
-$configPath = '/etc/portofolio/config.mail.php';
+$configPath = '/etc/config.mail.php';
 if (!is_readable($configPath)) {
     error_log('CONFIG_NOT_READABLE: ' . $configPath);
     header('Location: ./contact.php?status=cfg');
