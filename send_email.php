@@ -4,70 +4,73 @@ declare(strict_types=1);
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 
-require __DIR__ . '/vendor/autoload.php';                // ← autoload Composer
-$config = require '/etc/portofolio/config.mail.php';     // ← config di luar webroot (aman)
+// ===== Debug & safety =====
+ini_set('display_errors', '0');     // jangan tampilkan error ke user
+ini_set('log_errors', '1');         // log ke Apache error.log
+mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
+ob_start();                         // hindari "headers already sent"
 
-// ====== KONFIG DB ======
-$servername = "localhost";
-$username   = "admin";
-$password   = "";
-$dbname     = "personalweb";
-
-// ====== KONEKSI DB ======
-$conn = new mysqli($servername, $username, $password);
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-
-// Cek DB ada
-$db_check_query   = "SHOW DATABASES LIKE '$dbname'";
-$db_check_result  = $conn->query($db_check_query);
-if ($db_check_result->num_rows == 0) {
-    die("Database tidak ditemukan");
-}
-$conn->select_db($dbname);
-
-// Cek table ada
-$table_check_query  = "SHOW TABLES LIKE 'contact'";
-$table_check_result = $conn->query($table_check_query);
-if ($table_check_result->num_rows == 0) {
-    die("Tabel 'contact' tidak ditemukan");
-}
-
-// ====== Ambil & validasi form ======
-$name    = trim($_POST['name']    ?? '');
-$email   = trim($_POST['email']   ?? '');
-$message = trim($_POST['message'] ?? '');
-
-if (!filter_var($email, FILTER_VALIDATE_EMAIL)) {
-    header("Location: contact.php?status=invalid");
+// ===== Autoload & config =====
+$autoload = __DIR__ . '/vendor/autoload.php';
+if (!is_file($autoload)) {
+    error_log('AUTOLOAD_NOT_FOUND: ' . $autoload);
+    header('Location: ./contact.php?status=server');
     exit;
 }
-if ($name === '' || $message === '') {
-    header("Location: contact.php?status=invalid");
+require $autoload;
+
+$configPath = '/etc/portofolio/config.mail.php';
+if (!is_readable($configPath)) {
+    error_log('CONFIG_NOT_READABLE: ' . $configPath);
+    header('Location: ./contact.php?status=cfg');
+    exit;
+}
+$config = require $configPath;
+
+// ===== Validasi request =====
+if (($_SERVER['REQUEST_METHOD'] ?? '') !== 'POST') {
+    http_response_code(405);
+    exit('Method Not Allowed');
+}
+
+function f(string $k): string { return trim($_POST[$k] ?? ''); }
+$name    = f('name');
+$email   = f('email');
+$message = f('message');
+
+if ($name === '' || $message === '' || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+    header('Location: ./contact.php?status=invalid');
     exit;
 }
 
-// ====== Simpan ke DB ======
-$stmt = $conn->prepare("INSERT INTO contact (name, email, message) VALUES (?, ?, ?)");
-if (!$stmt) {
-    error_log("DB_PREPARE_ERROR: " . $conn->error);
-    header("Location: ./contact.php?status=dberror");
-    exit;
-}
-$stmt->bind_param("sss", $name, $email, $message);
-if (!$stmt->execute()) {
-    error_log("DB_EXEC_ERROR: " . $stmt->error);
-    header("Location: ./contact.php?status=dberror");
-    exit;
-}
-$stmt->close();
-$conn->close();
+// ===== DB: connect & insert =====
+$servername = 'localhost';
+$username   = 'admin';   // sesuaikan
+$password   = '';        // sesuaikan
+$dbname     = 'personalweb';
 
-// ====== Kirim Email via Brevo (SMTP) ======
-$mail = new PHPMailer(true);
 try {
-    // $mail->SMTPDebug = SMTP::DEBUG_SERVER; // ← aktifkan sementara untuk debug
+    $conn = new mysqli($servername, $username, $password, $dbname);
+    $conn->set_charset('utf8mb4');
+
+    // langsung coba insert; kalau tabel belum ada, akan ke-catch dengan pesan jelas
+    $stmt = $conn->prepare('INSERT INTO contact (name, email, message) VALUES (?, ?, ?)');
+    $stmt->bind_param('sss', $name, $email, $message);
+    $stmt->execute();
+    $stmt->close();
+    $conn->close();
+} catch (\mysqli_sql_exception $e) {
+    error_log('DB_ERROR: ' . $e->getMessage());
+    header('Location: ./contact.php?status=dberror');
+    exit;
+}
+
+// ===== Kirim email via Brevo SMTP =====
+$mail = new PHPMailer(true);
+
+try {
+    // Aktifkan sementara jika perlu lihat detail di error.log:
+    // $mail->SMTPDebug = SMTP::DEBUG_SERVER;
 
     $mail->isSMTP();
     $mail->Host       = $config['host'];
@@ -83,41 +86,40 @@ try {
         $mail->Port       = (int)($config['port'] ?? 587);
     }
 
-    // From = domain kamu (align DMARC), To = email penerima
+    // From (domain kamu) & To (email tujuan)
     $mail->setFrom($config['from_email'], $config['from_name']);
     $mail->addAddress($config['to_email'], $config['to_name']);
 
-    // Supaya balas langsung ke pengirim form
+    // Reply ke pengirim form
     $mail->addReplyTo($email, $name);
 
     // Konten
     $mail->isHTML(true);
     $mail->Subject = "[Contact Form] Pesan baru dari $name";
-    $html  = "<h3>Pesan baru dari form kontak</h3>";
-    $html .= "<p><b>Nama:</b> " . htmlspecialchars($name) . "</p>";
-    $html .= "<p><b>Email:</b> " . htmlspecialchars($email) . "</p>";
-    $html .= "<p><b>Waktu:</b> " . date('Y-m-d H:i:s') . "</p>";
-    $html .= "<p><b>Pesan:</b><br>" . nl2br(htmlspecialchars($message)) . "</p>";
-    $mail->Body    = $html;
+    $mail->Body    =
+        "<h3>Pesan baru dari form kontak</h3>"
+      . "<p><b>Nama:</b> " . htmlspecialchars($name) . "</p>"
+      . "<p><b>Email:</b> " . htmlspecialchars($email) . "</p>"
+      . "<p><b>Waktu:</b> " . date('Y-m-d H:i:s') . "</p>"
+      . "<p><b>Pesan:</b><br>" . nl2br(htmlspecialchars($message)) . "</p>";
 
-    $text  = "Pesan baru dari form kontak\n";
-    $text .= "Nama: $name\nEmail: $email\nWaktu: " . date('Y-m-d H:i:s') . "\n\n";
-    $text .= "Pesan:\n$message\n";
-    $mail->AltBody = $text;
+    $mail->AltBody =
+        "Pesan baru dari form kontak\n"
+      . "Nama: $name\nEmail: $email\nWaktu: " . date('Y-m-d H:i:s') . "\n\n"
+      . "Pesan:\n$message\n";
 
-    // Header tambahan (opsional)
+    // Header tambahan
     $mail->addCustomHeader('X-Form', 'portfolio-contact');
 
     $mail->send();
 
-    // Sukses semuanya
-    header("Location: ./contact.php?status=success");
+    header('Location: ./contact.php?status=success');
     exit;
 
 } catch (\Throwable $e) {
     error_log('MAIL_ERROR: ' . $e->getMessage());
-    // Data sudah tersimpan di DB, tapi email gagal → kirim status berbeda
-    header("Location: ./contact.php?status=mailfail");
+    header('Location: ./contact.php?status=mailfail');
     exit;
 }
-            
+
+// (jangan tutup dengan "?>" agar tidak ada whitespace yang mengganggu header)
