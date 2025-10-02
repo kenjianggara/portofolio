@@ -74,6 +74,7 @@ try {
     
 
     $mail->isSMTP();
+    $mail->Mailer = 'smtp'; // cegah fallback ke mail()/sendmail lokal
     $mail->Host       = $config['host'];
     $mail->SMTPAuth   = true;
     $mail->Username   = $config['username'];
@@ -89,6 +90,8 @@ try {
 
     // From (domain kamu) & To (email tujuan)
     $mail->setFrom($config['from_email'], $config['from_name']);
+    $mail->Sender = $config['from_email']; // set Return-Path/envelope sender
+    error_log('MAIL_FROM=' . $mail->From . ' SENDER=' . $mail->Sender);
     $mail->addAddress($config['to_email'], $config['to_name']);
 
     // Reply ke pengirim form
