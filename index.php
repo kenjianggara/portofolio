@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <title>My Personal Website</title>
     <meta charset="UTF-8">

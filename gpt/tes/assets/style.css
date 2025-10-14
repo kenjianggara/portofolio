@@ -1,0 +1,4 @@
+/* Sentuhan kecil */
+.content h2 { margin-top: 1.25rem; }
+.content h3 { margin-top: 1rem; }
+.badge.text-bg-light { background-color: var(--bs-body-bg); }

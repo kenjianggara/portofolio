@@ -62,6 +62,58 @@ img{
     color: #2d6a4f;
     border: 1px solid #b7dfc5;
 } 
+/* blog */
+  /* --- Card Style --- */
+  .card {
+    background-color: #f3f6fa; /* abu-abu kebiruan lembut, lebih nyatu dengan background */
+    border: 1px solid #d1d9e6;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+  }
+  
+  /* --- Judul Card --- */
+  .card-title a {
+    color: #0d6efd; /* warna biru bootstrap */
+    text-decoration: none;
+  }
+  
+  .card-title a:hover {
+    color: #084298; /* sedikit lebih gelap saat hover */
+  }
+  
+  /* --- Teks Card --- */
+  .card-text {
+    color: #2c3e50; /* teks isi lebih gelap biar mudah dibaca */
+  }
+  
+  /* --- Tag / Badge --- */
+  .badge {
+    background-color: #e7edf6;
+    color: #0d6efd;
+    border: 1px solid #cdd9ea;
+    font-size: 0.75rem;
+  }
+  
+  /* --- Form Input --- */
+  .form-control, .form-select {
+    border: 1px solid #c9d2e0;
+  }
+  
+  /* --- Tombol Search --- */
+  .btn-primary {
+    background-color: #0d6efd;
+    border: none;
+  }
+  
+  .btn-primary:hover {
+    background-color: #0b5ed7;
+  }
+  
+  
 
 /* 404 */
 .error-container {
