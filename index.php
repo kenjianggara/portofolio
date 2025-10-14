@@ -123,6 +123,12 @@
                             alt="Owasp Juice Shop" class="img-fluid" title="Owasp Juice Shop">
                     </a>
                 </div>
+                <div class="col">
+                    <a href="https://aws.amazon.com/training/restart/" target="_blank">
+                        <img src="https://orbitfutureacademy.com/wp-content/uploads/2023/05/AWS_Restart_Logo.png"
+                            alt="AWS re/Start" class="img-fluid" title="AWS re/Start">
+                    </a>
+                </div>
             </div>
             <div class="row justify-content-center px-5">
                 <div class="col">
@@ -152,6 +158,12 @@
                     <a href="https://www.hacktrace-ranges.id/ranges" target="_blank">
                         <img src="https://www.hacktrace-ranges.id/assets/images/banner1.png" alt="Hacktrace ranges"
                             class="img-fluid" title="Hacktrace ranges">
+                    </a>
+                </div>
+                <div class="col">
+                    <a href="https://orbitfutureacademy.com/aws-re-start/" target="_blank">
+                        <img src="./img/orbit.png" alt="orbit future academy"
+                            class="img-fluid" title="Orbit Future Academy">
                     </a>
                 </div>
             </div>
