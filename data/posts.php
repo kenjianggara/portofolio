@@ -1,8 +1,8 @@
 <?php
 // Ambil config dari luar repo (prod) atau fallback ke config.dev.php (dev)
-$config = is_file('/etc/your-site/config.php')
-  ? require '/etc/your-site/config.php'
-  : require __DIR__ . '/../config.dev.php';
+$config = is_file('../etc/config.php')
+  ? require '../etc/config.php'
+  : require __DIR__ . './config.dev.php';
 
 define('POSTS_FILE', $config['posts_file']);
 define('POSTS_HMAC', $config['posts_hmac_file']);
@@ -40,4 +40,3 @@ function get_post_by_id(string $id): ?array {
   }
   return null;
 }
-?>
