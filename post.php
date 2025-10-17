@@ -1,5 +1,5 @@
 <?php
-include __DIR__ . './data/posts.php';
+include __DIR__ . '/data/posts.php';
 $id = $_GET['id'] ?? '';
 $post = get_post($id);
 if (!$post) {
