@@ -126,4 +126,4 @@ try {
     exit;
 }
 
-// (jangan tutup dengan "?>" agar tidak ada whitespace yang mengganggu header)
+// jangan tutup dengan "?>" agar tidak ada whitespace yang mengganggu header

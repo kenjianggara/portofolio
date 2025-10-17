@@ -89,6 +89,46 @@ img{
   .card-text {
     color: #2c3e50; /* teks isi lebih gelap biar mudah dibaca */
   }
+
+  /* --- Blog Card Gelap Nyatu dengan Background --- */
+.blog-card {
+  background: #405b72; /* biru keabu lembut, nyatu dengan background utama */
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  color: #f1f5f9;
+  border-radius: 12px;
+  box-shadow: 0 6px 14px rgba(0, 0, 0, 0.25);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.blog-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.3);
+}
+
+/* judul di dalam card */
+.blog-card .card-title {
+  color: #ffffff;
+  font-weight: 600;
+}
+
+/* ringkasan / isi */
+.blog-card p,
+.blog-card .text-secondary {
+  color: #d0d7de; /* abu muda biar enak dibaca */
+}
+
+/* tombol "Read" */
+.blog-card .btn-outline-light {
+  border-color: #b8d3ff;
+  color: #e6efff;
+  transition: all 0.2s ease;
+}
+
+.blog-card .btn-outline-light:hover {
+  background-color: #0d6efd;
+  color: #fff;
+  border-color: #0d6efd;
+}
   
   /* --- Tag / Badge --- */
   .badge {
@@ -144,6 +184,68 @@ img{
     max-width: 400px;
     margin-bottom: 2rem;
   }
+
+  /* === Admin Blog === */
+.admin-wrap{max-width:1100px;margin:0 auto;}
+.form-label{font-weight:600}
+.help{font-size:.875rem;color:#6c757d}
+textarea.content-input{min-height:360px}
+
+/* Kartu/form putih lembut */
+.card-admin{
+  background:#fcfdff;                 /* putih lembut */
+  border:1px solid #e3eaf3;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+}
+
+/* Table dalam kartu */
+.admin-table-wrap{
+  background:#fcfdff;
+  border:1px solid #e3eaf3;
+  border-radius:14px;
+  box-shadow:0 8px 24px rgba(0,0,0,.08);
+  overflow:hidden;
+}
+.admin-table thead th{
+  background:#f1f5fa;                 /* abu kebiruan */
+  color:#2b3b4a;
+  border-bottom:2px solid #d8e2ee;
+  font-weight:600;
+}
+.admin-table td, .admin-table th{
+  border-color:#e6edf5 !important;
+}
+.admin-table tbody tr{background:#fff;transition:background .15s ease;}
+.admin-table tbody tr:hover{background:#f6f9fc;}
+
+/* Input/textarea */
+.admin-page .form-control, .admin-page .form-select{
+  background:#fff;
+  border:1px solid #d4deea;
+}
+.admin-page .form-control:focus, .admin-page .form-select:focus{
+  border-color:#8ab4f8;
+  box-shadow:0 0 0 .2rem rgba(13,110,253,.15);
+}
+
+/* Tombol */
+.admin-page .btn-primary{background:#0d6efd;border:none;}
+.admin-page .btn-primary:hover{background:#0b5ed7;}
+.admin-page .btn-outline-primary{border-color:#8ab4f8;color:#0d6efd;}
+.admin-page .btn-outline-primary:hover{background:#0d6efd;color:#fff;}
+.admin-page .btn-outline-danger{border-color:#f4b3b3;color:#dc3545;}
+.admin-page .btn-outline-danger:hover{background:#dc3545;color:#fff;}
+
+/* Bar aksi nempel bawah saat scroll panjang */
+.sticky-actions{
+  position:sticky;bottom:0;background:#fff;
+  border-top:1px solid #e3eaf3;padding:12px 0;z-index:5;
+}
+
+/* Badge preview tag */
+.badge-tag{margin-right:.25rem;margin-bottom:.25rem}
+
 
 /* footer */
 footer {
