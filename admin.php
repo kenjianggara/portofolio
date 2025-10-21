@@ -119,11 +119,11 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['action']) && $_POST['
         }
     }
     if ($_POST['action'] === 'delete') {
-        $id = $_POST['id'] ?? '';
-        $idx = find_index($id, $posts);
-        if ($idx >= 0) {
-            array_splice($posts, $idx, 1);
-            save_posts($posts);
+        $id = (string)($_POST['id'] ?? '');
+        $idx = ctype_digit($id) ? (int)$id : find_index_by_id($id, $posts);
+        if (isset($posts[$idx])) {
+            unset($posts[$idx]);
+            save_all_posts($posts);
         }
         header('Location: admin.php?msg=deleted');
         exit;
@@ -158,7 +158,7 @@ if ($mode === 'edit' && ($eid = $_GET['id'] ?? '')) {
 </head>
 
 <body class="admin-page">
-    <?php include('./partials/header.php');?>
+    <?php include('./partials/header.php'); ?>
     <div class="container admin-wrap">
         <div class="d-flex justify-content-between align-items-center mb-4">
             <h3>Admin Blog</h3>
@@ -177,7 +177,7 @@ if ($mode === 'edit' && ($eid = $_GET['id'] ?? '')) {
 
         <?php if ($mode === 'list'): ?>
             <div class="d-flex justify-content-between mb-2">
-                <h5>Daftar Post</h5>
+                <a class="btn btn-primary btn-sm" href="post_editor.php">✏️ Buat Post Baru</a>
                 <a class="btn btn-primary btn-sm" href="?mode=edit">+ Tambah</a>
             </div>
             <div class="table-responsive admin-table-wrap">
@@ -192,10 +192,17 @@ if ($mode === 'edit' && ($eid = $_GET['id'] ?? '')) {
                     </thead>
                     <tbody>
                         <?php foreach ($posts as $p): ?>
+                            <?php
+                            $id     = isset($p['id']) && $p['id'] !== '' ? (string)$p['id'] : (string)$i; // fallback index
+                            $title  = htmlspecialchars((string)($p['title'] ?? 'Tanpa Judul'), ENT_QUOTES, 'UTF-8');
+                            $date   = htmlspecialchars((string)($p['date']  ?? ''), ENT_QUOTES, 'UTF-8');
+                            $idHtml = htmlspecialchars($id, ENT_QUOTES, 'UTF-8');
+                            ?>
                             <tr>
-                                <td><code><?= htmlspecialchars($p['id']) ?></code></td>
-                                <td><?= htmlspecialchars($p['title']) ?></td>
-                                <td><?= htmlspecialchars($p['date']) ?></td>
+                                <td><code><?= $idHtml ?></code></td>
+                                <td><?= $title ?></td>
+                                <td><?= $date ?></td>
+                                <td class="text-end">
                                 <td class="text-end">
                                     <a class="btn btn-sm btn-outline-primary" href="?mode=edit&id=<?= urlencode($p['id']) ?>">Edit</a>
                                     <form method="post" class="d-inline" onsubmit="return confirm('Hapus post ini?')">
@@ -218,7 +225,7 @@ if ($mode === 'edit' && ($eid = $_GET['id'] ?? '')) {
                 <input type="hidden" name="action" value="save">
 
                 <div class="row g-3">
-                    <input type="hidden" name="id" value="<?= htmlspecialchars($edit['id']) ?>">
+                    <input type="hidden" name="id" value="<?= htmlspecialchars((string)($edit['id'] ?? ($_GET['id'] ?? '')), ENT_QUOTES, 'UTF-8') ?>">
                     <div class="col-md-8">
                         <label class="form-label">Judul</label>
                         <input name="title" class="form-control" required value="<?= htmlspecialchars($edit['title']) ?>">
@@ -254,26 +261,41 @@ if ($mode === 'edit' && ($eid = $_GET['id'] ?? '')) {
     </div>
     <script src="./script.js"></script>
     <script>
-(function(){
-  // autosize textarea konten
-  const content = document.getElementById('content');
-  const autosize = el => { el.style.height='auto'; el.style.height=(el.scrollHeight+2)+'px'; };
-  if(content){ autosize(content); content.addEventListener('input',()=>autosize(content)); }
+        (function() {
+            // autosize textarea konten
+            const content = document.getElementById('content');
+            const autosize = el => {
+                el.style.height = 'auto';
+                el.style.height = (el.scrollHeight + 2) + 'px';
+            };
+            if (content) {
+                autosize(content);
+                content.addEventListener('input', () => autosize(content));
+            }
 
-  // counter ringkasan
-  const sum = document.getElementById('summary'), out = document.getElementById('sumCount');
-  if(sum && out){ const upd=()=>out.textContent = String(sum.value.length); upd(); sum.addEventListener('input',upd); }
+            // counter ringkasan
+            const sum = document.getElementById('summary'),
+                out = document.getElementById('sumCount');
+            if (sum && out) {
+                const upd = () => out.textContent = String(sum.value.length);
+                upd();
+                sum.addEventListener('input', upd);
+            }
 
-  // preview tags
-  const tagsIn = document.getElementById('tagsInput'), preview = document.getElementById('tagsPreview');
-  const drawTags = () => {
-    if(!tagsIn || !preview) return;
-    const tags = tagsIn.value.split(',').map(s=>s.trim()).filter(Boolean);
-    preview.innerHTML = tags.map(t=>`<span class="badge bg-secondary badge-tag">#${t}</span>`).join('');
-  };
-  if(tagsIn){ drawTags(); tagsIn.addEventListener('input',drawTags); }
-})();
-</script>
+            // preview tags
+            const tagsIn = document.getElementById('tagsInput'),
+                preview = document.getElementById('tagsPreview');
+            const drawTags = () => {
+                if (!tagsIn || !preview) return;
+                const tags = tagsIn.value.split(',').map(s => s.trim()).filter(Boolean);
+                preview.innerHTML = tags.map(t => `<span class="badge bg-secondary badge-tag">#${t}</span>`).join('');
+            };
+            if (tagsIn) {
+                drawTags();
+                tagsIn.addEventListener('input', drawTags);
+            }
+        })();
+    </script>
     <?php include('./partials/footer.php'); ?>
 </body>
 
